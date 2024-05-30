@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ user.username }}'s Expenses</title>
+</head>
+<body>
+    <h1>{{ user.username }}'s Expenses</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Date</th>
+        </tr>
+        {% for expense in expenses %}
+        <tr>
+            <td>{{ expense.id }}</td>
+            <td>{{ expense.amount }}</td>
+            <td>{{ expense.description }}</td>
+            <td>{{ expense.date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/"><button>Back</button></a>
+</body>
+</html>

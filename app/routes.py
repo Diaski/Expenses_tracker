@@ -1,30 +1,12 @@
-from flask import Blueprint,render_template,request,redirect
-from .functions import add_user,show_users,show_expenses
+from .views import home,create_expense, create_expense_post,login,register,register_post
+from flask import Flask
+def add_url(app:Flask)->Flask:
+    app.add_url_rule('/', 'home', home)
+    app.add_url_rule('/register', 'create_user', register)
+    app.add_url_rule('/register', 'create_user_post', register_post, methods=['POST'])
+    app.add_url_rule('/create_expense', 'create_expense', create_expense)
+    app.add_url_rule('/create_expense', 'create_expense_post', create_expense_post, methods=['POST'])
+    app.add_url_rule('/login', 'login', login)
+    return app
 
 
-main = Blueprint('main', __name__)
-
-@main.route('/')
-def home():
-    return "Hello, World!"
-
-@main.route('/users')
-def list_users():
-    return show_users()
-
-@main.route('/expenses')
-def list_expenses():
-    return show_expenses()
-
-@main.route('/create_user')
-def create_user_render_template():
-    return render_template('create_user.html')
-
-@main.route('/create_user', methods=['POST'])
-def create_user_post():
-    username = request.form.get('username')
-    password = request.form.get('password')
-    response=add_user(username, password)
-    if response=="done":
-        return redirect('/')
-    return render_template('create_user.html', messages=[response])

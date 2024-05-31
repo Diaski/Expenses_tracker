@@ -3,10 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ user.username }}'s Expenses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <h1>{{ user.username }}'s Expenses</h1>
-    <table border="1">
+    <table>
         <tr>
             <th>ID</th>
             <th>Amount</th>
@@ -16,12 +66,12 @@
         {% for expense in expenses %}
         <tr>
             <td>{{ expense.id }}</td>
-            <td>{{ expense.amount }}</td>
+            <td>${{ expense.amount }}</td>
             <td>{{ expense.description }}</td>
             <td>{{ expense.date }}</td>
         </tr>
         {% endfor %}
     </table>
-    <a href="/"><button>Back</button></a>
+    <a href="/" class="back-button">Back</a>
 </body>
 </html>

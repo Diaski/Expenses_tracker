@@ -73,12 +73,3 @@ class funcs():
     def logout() -> TemplateGlobalCallable:
         session.pop('user_id', None)  
         return redirect(url_for('home'))
-
-
-
-
-
-
-
-
-    

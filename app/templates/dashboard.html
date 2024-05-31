@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .expense-amount {
+            margin-right: 10px;
+        }
+        .expense-currency {
+            font-size: 0.8em;
+            color: #666;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .logout-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .logout-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ user.username }}!</h1>
+        
+        <h2>Your Expenses:</h2>
+        <ul>
+            {% for expense in expenses %}
+                <li>
+                    <span class="expense-amount">{{ expense.amount }}</span>
+                    <span class="expense-currency">{{ expense.currency }}</span> - {{ expense.description }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Links for viewing and adding expenses -->
+        <div>
+            <a href="{{ url_for('view_expenses') }}" class="btn">View Expenses</a>
+            <a href="{{ url_for('create_expense') }}" class="btn">Add Expense</a>
+            <!-- Button for viewing charts -->
+            <a href="{{ url_for('view_charts') }}" class="btn">View Charts</a>
+        </div>
+
+        <!-- Logout link -->
+        <a href="{{ url_for('logout') }}" class="logout-link">Logout</a>
+    </div>
+</body>
+</html>

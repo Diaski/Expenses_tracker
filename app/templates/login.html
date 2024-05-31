@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <!-- Add Bootstrap for styling -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -21,11 +20,30 @@
         .form-group {
             margin-bottom: 20px;
         }
+        .mt-3 {
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2 class="my-4">Login</h2>
+        <!-- Add feedback for successful login attempts -->
+        {% if login_success %}
+            <div class="alert alert-success" role="alert">
+                Login successful!
+            </div>
+        {% endif %}
+        <!-- Show error messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
         <form method="POST">
             <div class="form-group">
                 <label for="username">Username</label>

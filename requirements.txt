@@ -4,6 +4,7 @@ contourpy==1.2.1
 cycler==0.12.1
 DateTime==5.5
 Flask==3.0.3
+Flask-Login==0.6.3
 Flask-SQLAlchemy==3.1.1
 fonttools==4.52.4
 greenlet==3.0.3

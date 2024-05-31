@@ -20,6 +20,24 @@
         }
         .form-group {
             margin-bottom: 20px;
+            opacity: 0; /* Initially hide the form elements */
+            animation: fadeIn 0.5s forwards; /* Apply animation to fade in */
+        }
+        /* Animation keyframes */
+        @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+
+        /* Apply animation to select */
+        .form-group select option {
+        animation: fadeIn 0.5s ease-out;
         }
     </style>
 </head>
@@ -55,11 +73,34 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="expense_type">Expense Type</label>
+                <select class="form-control" id="expense_type" name="expense_type" required>
+                    <option value="food">Food</option>
+                    <option value="clothes">Clothes</option>
+                    <option value="transportation">Transportation</option>
+                    <option value="utilities">Utilities</option>
+                    <option value="rent">Rent</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="medical">Medical</option>
+                    <option value="education">Education</option>
+                    <option value="insurance">Insurance</option>
+                    <option value="gifts">Gifts</option>
+                    <option value="travel">Travel</option>
+                    <option value="subscriptions">Subscriptions</option>
+                    <option value="personal_care">Personal Care</option>
+                    <option value="miscellaneous">Miscellaneous</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="description">Description</label>
                 <input type="text" class="form-control" id="description" name="description" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Add Expense</button>
         </form>
+
+        <!-- Back button to dashboard -->
+        <a href="{{ url_for('dashboard') }}" class="btn btn-secondary mt-3">Back to Dashboard</a>
     </div>
 
     <!-- Add Bootstrap JS and dependencies (optional) -->

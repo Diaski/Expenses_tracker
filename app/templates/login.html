@@ -8,6 +8,7 @@
     <style>
         body {
             background-color: #f8f9fa;
+            animation: fadeIn 2s;
         }
         .container {
             max-width: 400px;
@@ -16,12 +17,20 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s;
         }
         .form-group {
             margin-bottom: 20px;
         }
-        .mt-3 {
-            margin-top: 1rem;
+        .btn {
+            transition: transform 0.3s;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>

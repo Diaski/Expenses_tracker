@@ -9,20 +9,58 @@
     <style>
         body {
             background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
         }
         .container {
-            max-width: 600px;
+            max-width: 900px;
             margin: 50px auto;
             text-align: center;
+            animation: fadeIn 2s;
         }
         .jumbotron {
-            background-color: #007bff;
+            background: linear-gradient(135deg, #007bff, #00c6ff);
             color: #fff;
-            padding: 20px;
+            padding: 40px;
             border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1.5s;
         }
         .btn {
             margin-top: 20px;
+            transition: transform 0.3s;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        .feature {
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s;
+        }
+        .feature-icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .feature h3 {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
@@ -30,21 +68,36 @@
     <div class="container">
         <div class="jumbotron">
             <h1 class="display-4">Welcome to Expense Tracker!</h1>
-            <p class="lead">Keep track of your expenses easily.</p>
+            <p class="lead">Easily keep track of your expenses and manage your budget effectively.</p>
+            <hr class="my-4">
+            <p>Track your spending, save money, and achieve your financial goals with our simple and intuitive expense tracking tool.</p>
         </div>
-        
-        {% if user %}
-            <a href="/add-expense" class="btn btn-primary">Create Expense</a>
-            <a href="/logout" class="btn btn-danger">Logout</a>
-        {% else %}
-            <a href="/login" class="btn btn-primary">Login</a>
-            <a href="/register" class="btn btn-success">Register</a>
-        {% endif %}
+            <a href="/login" class="btn btn-primary btn-lg">Login</a>
+            <a href="/register" class="btn btn-success btn-lg">Register</a>
+        <div class="row mt-5">
+            <div class="col-md-4 feature">
+                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Analyze Spending</h3>
+                <p>Get detailed insights into your spending patterns and identify areas where you can save.</p>
+            </div>
+            <div class="col-md-4 feature">
+                <div class="feature-icon"><i class="fas fa-piggy-bank"></i></div>
+                <h3>Set Budgets</h3>
+                <p>Set monthly budgets for different categories and make sure you stay on track with your financial goals.</p>
+            </div>
+            <div class="col-md-4 feature">
+                <div class="feature-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <h3>Alerts & Reminders</h3>
+                <p>Receive alerts and reminders to help you stay within your budget and avoid overspending.</p>
+            </div>
+        </div>
     </div>
 
-    <!-- Add Bootstrap JS and dependencies (optional) -->
+    <!-- Add Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Add FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>

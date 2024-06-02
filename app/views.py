@@ -1,8 +1,6 @@
 from flask import render_template, request, redirect, url_for, session,flash
 from .functions import FuncsUser,DataCreation,Validate
 from flask.typing import TemplateGlobalCallable
-from .charts import *
-import re
 class Render():
         
     @staticmethod

@@ -1,24 +1,17 @@
-from flask import Flask, redirect, url_for, session,request
+from flask import Flask,session,request,redirect,url_for
 from .extensions import db
-from . import config
+from .config import DevelopmentConfig
 
-app = Flask(__name__)
-def create_app()->Flask:
-    app.config.from_object(config.DevelopmentConfig)
+def create_app(config_class=DevelopmentConfig) -> Flask:
+    app = Flask(__name__)
+    app.config.from_object(config_class)
     db.init_app(app)
 
-
-    @app.before_request
-    def check_session():
-        allowed_endpoints = ['login_post','login', 'create_user','create_user_post','home']
-
-        if 'user_id' not in session:
-            if request.endpoint not in allowed_endpoints and not request.endpoint.startswith('static'):
-                return redirect(url_for('login'))
-
-        if 'user_id' in session:
-            session.permanent = True
-        
+                
     with app.app_context():
         db.create_all()
+
     return app
+
+
+   

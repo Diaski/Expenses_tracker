@@ -105,23 +105,17 @@
             </tbody>
         </table>
 
-        <!-- Links for viewing and adding expenses -->
         <div>
             <a href="{{ url_for('view_expenses') }}" class="btn">View Expenses</a>
             <a href="{{ url_for('create_expense') }}" class="btn">Add Expense</a>
-            <!-- Button for viewing charts -->
-            <a href="{{ url_for('view_charts') }}" class="btn">View Charts</a>
         </div>
 
-        <!-- Logout link -->
         <a href="{{ url_for('logout') }}" class="logout-link">Logout</a>
     </div>
 
-    <!-- Add Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Add FontAwesome for icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>

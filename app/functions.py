@@ -64,7 +64,6 @@ class FuncsUser:
         new_user = User(username=username, salt=salt, password=hashed_password)
         db_instance.add(new_user)
         return 'done'
-
     @staticmethod
     def get_expenses(user_id: int) -> tuple:
         user = User.query.get(user_id)
@@ -81,15 +80,6 @@ class FuncsUser:
             return "Wrong password"
         return 'done'
 
-class DataCreation:
-    @staticmethod
-    def create_expense(amount: float, description: str, user_id: int, currency: str, expense_type: str) -> str:
-        db_instance = _DB()
-        if not amount:
-            return "Amount required"
-        new_expense = Expense(amount=amount, description=description, user_id=user_id, currency=currency, type=expense_type)
-        db_instance.add(new_expense)
-        return 'done'
 
 class InsideFuncs:
     @staticmethod
@@ -110,3 +100,12 @@ class Validate():
             flash('Invalid password. Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.')
             return False
         return True
+class DataCreation:
+    @staticmethod
+    def create_expense(amount: float, description: str, user_id: int, currency: str, expense_type: str) -> str:
+        db_instance = _DB()
+        if not amount:
+            return "Amount required"
+        new_expense = Expense(amount=amount, description=description, user_id=user_id, currency=currency, type=expense_type)
+        db_instance.add(new_expense)
+        return 'done'

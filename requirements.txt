@@ -16,6 +16,7 @@ MarkupSafe==2.1.5
 matplotlib==3.9.0
 numpy==1.26.4
 packaging==24.0
+pandas==2.2.2
 pillow==10.3.0
 pyparsing==3.1.2
 python-dateutil==2.9.0.post0
@@ -24,5 +25,6 @@ setuptools==70.0.0
 six==1.16.0
 SQLAlchemy==2.0.30
 typing_extensions==4.12.0
+tzdata==2024.1
 Werkzeug==3.0.3
 zope.interface==6.4.post2

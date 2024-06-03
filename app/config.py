@@ -1,5 +1,6 @@
 from datetime import timedelta
 from .extensions import get_key
+
 class Config:
     SQLALCHEMY_DATABASE_URI = 'sqlite:///expenses.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -11,4 +12,3 @@ class DevelopmentConfig(Config):
 
 class ProductionConfig(Config):
     DEBUG = False
-

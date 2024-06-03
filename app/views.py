@@ -1,8 +1,8 @@
 from flask import render_template, request, redirect, url_for, session, flash
 from .functions import FuncsUser, DataCreation, Validate
 from flask.typing import TemplateGlobalCallable
-
-class Render:
+class Render():
+        
     @staticmethod
     def home() -> TemplateGlobalCallable: 
         return render_template('home.html')

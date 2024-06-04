@@ -1,4 +1,4 @@
-from flask import Flask, send_file
+from flask import Flask
 from .views import Render, PostFuncs, Funcs
 
 def add_url(app: Flask) -> Flask:
